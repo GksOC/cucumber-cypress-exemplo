@@ -15,6 +15,11 @@ Cenário: Adicionar novos livros com tabela de exemplos
     | Livro de teste 3 | Autor teste 3 | 3         | 300        |
     Então deve aparecer uma mensagem: "Livro adicionado com sucesso!"
 
+Cenário: Impedir adicição de livro com informação incompleta
+    Dado que eu estou na página de administrador de livros
+    Quando eu adiciono um livro com dados faltantes 
+    Então deve aparecer um aviso de "Preencha este campo."
+
 Esquema do Cenário: Adicionar livros usando esquema do cenário - Livro: "<titulo>", "<autor>", "<categoria>", exemplares: "<exemplares>"
     Dado que eu estou na página de administrador de livros
     Quando eu adiciono um livro com "<titulo>", "<autor>", "<categoria>" e "<exemplares>"

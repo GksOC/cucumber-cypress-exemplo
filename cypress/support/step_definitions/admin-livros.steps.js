@@ -87,3 +87,31 @@ When(`eu adiciono um livro com {string}, {string}, {string} e {string}`, (titulo
         faker.hacker.phrase()
     );
 });
+
+When(`eu adiciono um livro com dados faltantes`, () => {
+    cy.wait(2000);
+    cy.adicionarLivro(
+        '', 
+        faker.book.author(),
+        Math.floor(Math.random()*1e13),
+        Math.floor(Math.random() * 15) + 1,
+        faker.book.publisher(),
+        Math.floor(Math.random() * (2025 - 1946) + 1946),
+        Math.floor(Math.random() * 999) + 1,
+        Math.floor(Math.random() * 20) + 1,
+        faker.hacker.phrase()
+    );
+});
+
+Then(`deve aparecer um aviso de {string}`, (arg0) => {
+    // Verifica se o input do Autor está inválido e valida o texto do balão
+    cy.get('#book-title').then(($input) => {
+        const element = $input[0];
+        
+        // Garante que o navegador marcou o campo como inválido
+        expect(element.validity.valueMissing).to.be.true;
+        
+        // Valida o texto exato que aparece no balão nativo
+        expect(element.validationMessage).to.contain('Preencha este campo');
+    });
+});

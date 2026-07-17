@@ -32,7 +32,7 @@ Cypress.Commands.add('login', (email, senha) => {
  
 Cypress.Commands.add('adicionarLivro', (title, author, isbn, category, editor, year, pages, copies, description) => {
     cy.get('.btn-success').click();
-    cy.get('#book-title').type(title);
+    title ? cy.get('#book-title').type(title) : cy.get('#book-title').clear();
     cy.get('#book-author').type(author, {force: true});
     cy.get('#book-isbn').type(isbn);
     cy.get('#book-category').select(category);
