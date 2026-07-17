@@ -5,6 +5,7 @@ const { createEsbuildPlugin } = require('@badeball/cypress-cucumber-preprocessor
 
 module.exports = defineConfig({
   e2e: {
+    // ** significa que procurará nas subpastas 
     specPattern: 'cypress/e2e/**/*.feature',
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config)
@@ -13,5 +14,6 @@ module.exports = defineConfig({
       }))
       return config
     },
+    baseUrl: 'http://localhost:3000/'
   },
 })

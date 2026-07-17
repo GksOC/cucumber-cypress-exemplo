@@ -20,7 +20,3 @@ When(`clicar no link Learn`, () => {
 Then(`deve exibir o título Learn na página`, () => {
    cy.get('h1').should('contain', 'Learn BDD and Cucumber');
 });
-
-
-
-

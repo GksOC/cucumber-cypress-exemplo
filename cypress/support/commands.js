@@ -10,7 +10,13 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('login', (email, senha) => {
+    cy.visit('login.html');
+    cy.get('#email').type(email);
+    cy.get('#password').type(senha);
+    cy.get('#login-btn').click();
+    cy.get('h1').should('contain', 'Painel Administrativo');
+})
 //
 //
 // -- This is a child command --
@@ -23,3 +29,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+ 
+Cypress.Commands.add('adicionarLivro', (title, author, isbn, category, editor, year, pages, copies, description) => {
+    cy.get('.btn-success').click();
+    cy.get('#book-title').type(title);
+    cy.get('#book-author').type(author, {force: true});
+    cy.get('#book-isbn').type(isbn);
+    cy.get('#book-category').select(category);
+    cy.get('#book-editor').type(editor);
+    cy.get('#book-year').type(year);
+    cy.get('#book-pages').clear().type(pages);
+    cy.get('#book-copies').clear().type(copies);
+    cy.get('#book-description').type(description);
+    cy.get('#save-book-btn').click();
+});
