@@ -10,18 +10,29 @@ Exemplo de automação de testes usando Cypress com Cucumber para estudantes da 
 
 ## 🚀 Como usar este projeto
 
-### 1. Clone o repositório
+### 1. Clone o repositório do website
 ```bash
-git clone https://github.com/EBAC-QE/cucumber-cypress-exemplo.git
+git clone https://github.com/EBAC-QE/hub-de-leitura-integrado.git
+cd hub-de-leitura-integrado
+```
+
+### 2. Inicie a instância
+```bash
+npm start
+```
+
+### 3. Em um novo terminal/powershell, clone o repositório
+```bash
+git clone https://github.com/GksOC/cucumber-cypress-exemplo.git
 cd cucumber-cypress-exemplo
 ```
 
-### 2. Instale as dependências
+### 4. Instale as dependências
 ```bash
 npm install
 ```
 
-### 3. Execute os testes
+### 5. Execute os testes
 ```bash
 # Executar testes em modo headless
 npx cypress run
